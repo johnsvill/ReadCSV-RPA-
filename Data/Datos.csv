@@ -1,0 +1,21 @@
+Apellido,Nombre,Sexo,Pais,Categoria,Estado,Relacion,Fecha
+Rodriguez,Joselin,Femenino,Guatemalteca,Banca Privada,Soltero,Cliente,01/02/2017
+Perez,Pedro,Masculino,Guatemalteca,Cgc,Casado,Cliente y Empleado,02/02/2017
+Andrade,Leslie,Femenino,No definido,Citi,Divorciado,Cliente,03/02/2017
+Espinoza,Ana,Femenino,Guatemalteca,Cmg,Viudo,Cliente y Empleado,04/02/2017
+Lainez,Carlos,Masculino,Panama,Gcg,Unido,Cliente,05/02/2017
+Estrada,Daniel,Masculino,Panama,MicroFinanzas,Soltero,Cliente y Empleado,06/02/2017
+Escobar,Lucas,Masculino,Guatemalteca,No definida,Casado,No Definido,07/02/2017
+Pineda,Gladys,Femenino,Panama,MicroFinanzas,Divorciado,Cliente y Empleado,08/02/2017
+Castro,Sofia,Femenino,Guatemalteca,MicroFinanzas,Viudo,Cliente,09/02/2017
+Ramirez,Danilo,Masculino,No definido,Citi,Unido,Cliente y Empleado,10/02/2017
+Lopez,Gabriela,Femenino,Guatemalteca,Citi,Soltero,No Definido,11/02/2017
+Juarez,Henry,Masculino,Panama,Cmg,Casado,No Definido,12/02/2017
+James,Jorge,Masculino,Guatemalteca,Banca Privada,Divorciado,Cliente,13/02/2017
+Alravez,Edwin,Masculino,Guatemalteca,Cgc,Viudo,Cliente y Empleado,14/02/2017
+Alvizuris,Katherin,Femenino,Panama,Banca Privada,Unido,Cliente,15/02/2017
+Bercher,Javier,Masculino,Panama,Banca Privada,Soltero,Cliente y Empleado,16/02/2017
+Way,Gabriel,Masculino,Panama,Cgc,Casado,Cliente,17/02/2017
+Corado,Estuardo,Masculino,Guatemalteca,Gcg,Divorciado,No Definido,18/02/2017
+Coronado,Jonathan,Masculino,No definido,No definida,Viudo,Cliente,19/02/2017
+Reyna,Diana,Femenino,Panama,Cmg,Unido,Cliente y Empleado,20/02/2017
