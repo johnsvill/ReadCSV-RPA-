@@ -1,0 +1,6 @@
+{
+	"Correo":"jvilleda@bdgsa.net",
+	"CorreoDestino":"johnsvill@hotmail.com",
+	"Asunto":"Reporte transacciones automatizadas",
+	"Cuerpo":"Se adjunta archivo generado por el robot."
+}

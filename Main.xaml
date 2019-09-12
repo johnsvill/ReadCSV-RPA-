@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="654,696" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="654,720" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <scg:List x:TypeArguments="x:String" Capacity="23">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -22,10 +22,12 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="19">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -43,33 +45,38 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap:VirtualizedContainerService.HintSize="634,660" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="readCsv" />
+      <Variable x:TypeArguments="x:String" Name="out_Csv" />
+      <Variable x:TypeArguments="sd:DataTable" Name="output" />
+      <Variable x:TypeArguments="njl:JObject" Name="configJson" />
+    </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,126.04</av:PointCollection>
+        <x:Double x:Key="Height">624.04</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">270,40 110,40 110,86</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID1">
+    <FlowStep x:Name="__ReferenceID3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,126.04</av:Point>
+          <av:Point x:Key="ShapeLocation">200,196.04</av:Point>
           <av:Size x:Key="ShapeSize">200,66</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">300,192.04 300,237</av:PointCollection>
+          <av:PointCollection x:Key="ConnectorLocation">300,262.04 300,304.02</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="ReadCSV" sap:VirtualizedContainerService.HintSize="376,443" sap2010:WorkflowViewState.IdRef="Sequence_1">
-        <Sequence.Variables>
-          <Variable x:TypeArguments="sd:DataTable" Name="readCsv" />
-          <Variable x:TypeArguments="x:String" Name="out_Csv" />
-        </Sequence.Variables>
+      <Sequence DisplayName="ReadCSV" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -81,40 +88,128 @@
         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[out_Csv]" TopMost="True" />
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID0">
+        <FlowStep x:Name="__ReferenceID1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:Point x:Key="ShapeLocation">200,237</av:Point>
-              <av:Size x:Key="ShapeSize">200,66</av:Size>
+              <av:Point x:Key="ShapeLocation">200,304.02</av:Point>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,356.02 300,397</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="FilterData" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <ui:FilterDataTable DataTable="[readCsv]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[output]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable.Filters>
+              <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+              </scg:List>
+            </ui:FilterDataTable.Filters>
+            <ui:FilterDataTable.SelectColumns>
+              <scg:List x:TypeArguments="InArgument" Capacity="4">
+                <x:Null />
+              </scg:List>
+            </ui:FilterDataTable.SelectColumns>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Secuencia para filtrar datos&quot;]" />
-            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,192" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Data\FilterData.xlsx">
-              <ui:ExcelApplicationScope.Body>
-                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
-                  <ActivityAction.Argument>
-                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
-                  </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          </ui:FilterDataTable>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID0">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">200,397</av:Point>
+                  <av:Size x:Key="ShapeSize">200,66</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">300,463 300,506.04</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="FilterData" sap:VirtualizedContainerService.HintSize="476,672" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Secuencia para filtrar datos&quot;]" />
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,449" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Data\FilterData.xlsx">
+                  <ui:ExcelApplicationScope.Body>
+                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,340" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="in_DataTable" />
+                          <Variable x:TypeArguments="x:String" Name="printDataTable" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ExcelWriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[output]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Hoja1" />
+                        <ui:OutputDataTable DataTable="[output]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[printDataTable]" />
+                        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[printDataTable]" TopMost="True" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ExcelApplicationScope.Body>
+                </ui:ExcelApplicationScope>
+              </Sequence>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">200,506.04</av:Point>
+                      <av:Size x:Key="ShapeSize">200,66</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Secuencia para enviar Email&quot;]" />
+                    <ui:SendOutlookMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Account="[configJson(&quot;Correo&quot;).ToString]" Body="[configJson(&quot;Cuerpo&quot;).ToString]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[configJson(&quot;Asunto&quot;).ToString]" To="[configJson(&quot;CorreoDestino&quot;).ToString]">
+                      <ui:SendOutlookMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                          <InArgument x:TypeArguments="x:String">Data\FilterData.xlsx</InArgument>
+                        </scg:List>
+                      </ui:SendOutlookMail.Files>
+                    </ui:SendOutlookMail>
                   </Sequence>
-                </ActivityAction>
-              </ui:ExcelApplicationScope.Body>
-            </ui:ExcelApplicationScope>
-          </Sequence>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <FlowStep x:Name="__ReferenceID4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">10,86</av:Point>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">210,120 300,120 300,196.04</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="ConfigFile" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="configTxt" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Archivo de configuración&quot;]" />
+        <ui:ReadTextFile Content="[configTxt]" DisplayName="Read Text File" FileName="Data\Config.txt" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+        <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[configJson]" JsonString="[configTxt]" />
+      </Sequence>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID3</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
   </Flowchart>
 </Activity>
